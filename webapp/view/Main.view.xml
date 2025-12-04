@@ -1,35 +1,74 @@
-<mvc:View 
-
-controllerName="commonfiori.controller.Main"
+<!-- 
+<mvc:View
+    controllerName="commonfiori.controller.Main"
     xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.m"
-    xmlns:core="sap.ui.core"
-    xmlns:table="sap.ui.table"
->
-    
-<Page
-		title="{i18n>appTitle}"
-		id="page">
-		<content>
-			<IllustratedMessage
-				title="{i18n>appTitle}"
-				illustrationType="sapIllus-SuccessHighFive"
-				enableVerticalResponsiveness="true"
-				description="{i18n>appDescription}">
-				<additionalContent>
-					<Button
-						id="helloButton"
-						text="{formatter: 'formatter.formatValue', path: 'i18n>btnText'}"
-						press="sayHello"
-						class="sapUiMediumMarginEnd" />
-					<Button
-						id="mathButton"
-						text="Test BasicMath Library"
-						press="onTestMath"
-						type="Emphasized" />
-				</additionalContent>
-			</IllustratedMessage>
-		</content>
-	</Page>
+    xmlns="sap.m">
 
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <Table
+                id="productsList"
+                items="{/Products}"
+                inset="false">
+
+                <headerToolbar>
+                    <Toolbar>
+                        <Title text="Products" level="H3"/>
+                    </Toolbar>
+                </headerToolbar>
+
+                <columns>
+                    <Column><Text text="Product ID"/></Column>
+                    <Column><Text text="Name"/></Column>
+                    <Column><Text text="Unit Price"/></Column>
+                    <Column><Text text="Stock"/></Column>
+                    <Column><Text text="Discontinued"/></Column>
+                </columns>
+
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{ProductID}" />
+                            <Text text="{ProductName}" />
+                            <ObjectNumber number="{UnitPrice}" unit="USD" />
+                            <Text text="{UnitsInStock}" />
+                            <ObjectStatus
+                                text="{= ${Discontinued} ? 'Yes' : 'No' }"
+                                state="{= ${Discontinued} ? 'Error' : 'Success' }" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+    </Page>
+</mvc:View> -->
+<mvc:View
+    controllerName="commonfiori.controller.Main"
+    height="100%"
+    displayBlock="true"
+    xmlns:mvc="sap.ui.core.mvc"
+	xmlns:l="sap.ui.layout"
+	xmlns="sap.m"
+	xmlns:f="sap.f"
+	xmlns:core="sap.ui.core"
+	xmlns:u="sap.ui.unified"
+	xmlns:mdcvh="sap.ui.mdc.valuehelp"
+	xmlns:mdcvc="sap.ui.mdc.valuehelp.content"
+	xmlns:mdc="sap.ui.mdc"
+	xmlns:table="sap.ui.mdc.table"
+	xmlns:vm="sap.ui.fl.variants"
+>
+    <f:DynamicPage id="page">
+        <f:content>
+            <mdc:Table
+               id="idMdcTableUsers" autoBindOnInit="true" width="100%" p13nMode="Sort,Column" selectionMode="SingleMaster" delegate="{name: 'csc/DynamicTableDelegate', payload: {collectionPath: 'mainModel>/Products'}}" threshold="50" filter="fbSelectBuildingDialog" enableAutoColumnWidth="true"
+            >
+            <table:Column
+					propertyKey="ProductName"
+					header="ProductName">
+                    <Text text="{mainModel>ProductName}"/>
+            </table:Column>
+            </mdc:Table>
+        </f:content>
+    </f:DynamicPage>
 </mvc:View>

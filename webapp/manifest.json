@@ -59,7 +59,7 @@
   "sap.ui5": {
     "flexEnabled": true,
     "resourceRoots": {
-      "mathbasics": "resources/ui5Lib/csc/ui5lib/delegates/"
+      "csc": "resources/ui5Lib/csc/ui5lib/delegates/"
     },
     "dependencies": {
       "minUI5Version": "1.143.0",
@@ -79,7 +79,7 @@
           "bundleName": "commonfiori.i18n.i18n"
         }
       },
-      "": {
+      "mainModel": {
         "dataSource": "mainService",
         "preload": true,
         "settings": {
