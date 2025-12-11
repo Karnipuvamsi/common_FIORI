@@ -13,10 +13,6 @@ modules:
     parameters:
       service-key:
         name: btp-samples-split-mta-shared-repo-host-key
-  - name: btp-samples-split-mta-shared-uaa
-    parameters:
-      service-key:
-        name: btp-samples-split-mta-shared-uaa-key
   parameters:
     content:
       instance:
@@ -25,11 +21,6 @@ modules:
           ServiceInstanceName: btp-samples-split-mta-shared-html5-srv
           ServiceKeyName: btp-samples-split-mta-shared-repo-host-key
           sap.cloud.service: btp.samples.split.mta
-        - Name: btp-samples-split-mta-shared_uaa
-          ServiceInstanceName: btp-samples-split-mta-shared-xsuaa-srv
-          ServiceKeyName: btp-samples-split-mta-shared-uaa-key
-          sap.cloud.service: btp.samples.split.mta
-          Authentication: OAuth2UserTokenExchange
         existing_destinations_policy: ignore
   build-parameters:
     no-source: true
@@ -61,28 +52,9 @@ resources:
 - name: btp-samples-split-mta-shared-dest-srv
   type: org.cloudfoundry.managed-service
   parameters:
-    config:
-      HTML5Runtime_enabled: true
-      init_data:
-        instance:
-          destinations:
-          - Name: northwind
-            Authentication: NoAuthentication
-            ProxyType: Internet
-            Type: HTTP
-            URL: https://services.odata.org/V3/Northwind/Northwind.svc/
-          existing_destinations_policy: update
-      version: 1.0.0
     service: destination
     service-name: btp-samples-split-mta-shared-dest-srv
     service-plan: lite
-- name: btp-samples-split-mta-shared-uaa
-  type: org.cloudfoundry.managed-service
-  parameters:
-    path: ./xs-security.json
-    service: xsuaa
-    service-plan: application
-    service-name: btp-samples-split-mta-shared-xsuaa-srv
 - name: btp-samples-split-mta-shared-repo-host
   type: org.cloudfoundry.managed-service
   parameters:
