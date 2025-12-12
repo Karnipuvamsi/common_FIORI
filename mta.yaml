@@ -13,10 +13,6 @@ modules:
     parameters:
       service-key:
         name: csc-sap-btp-ui5lib_repo-host-key
-  - name: csc-sap-btp-ui5lib_uaa
-    parameters:
-      service-key:
-        name: csc-sap-btp-ui5lib_uaa-key
   parameters:
     content:
       instance:
@@ -25,11 +21,6 @@ modules:
           ServiceInstanceName: csc-sap-btp-ui5lib_html5-srv
           ServiceKeyName: csc-sap-btp-ui5lib_repo-host-key
           sap.cloud.service: csc.ui5lib
-        - Name: csc-sap-btp-ui5lib_uaa
-          ServiceInstanceName: csc-sap-btp-ui5lib_xsuaa-srv
-          ServiceKeyName: csc-sap-btp-ui5lib_uaa-key
-          sap.cloud.service: csc.ui5lib
-          Authentication: OAuth2UserTokenExchange
         existing_destinations_policy: ignore
   build-parameters:
     no-source: true
@@ -67,13 +58,6 @@ resources:
     service: destination
     service-name: csc-sap-btp-ui5lib_dest-srv
     service-plan: lite
-- name: csc-sap-btp-ui5lib_uaa
-  type: org.cloudfoundry.managed-service
-  parameters:
-    path: ./xs-security.json
-    service: xsuaa
-    service-plan: application
-    service-name: csc-sap-btp-ui5lib_xsuaa-srv
 - name: csc-sap-btp-ui5lib_repo-host
   type: org.cloudfoundry.managed-service
   parameters:
@@ -83,3 +67,5 @@ resources:
 parameters:
   deploy_mode: html5-repo
   enable-parallel-deployments: true
+
+
