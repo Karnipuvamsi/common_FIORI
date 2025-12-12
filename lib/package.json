@@ -1,5 +1,5 @@
 {
-    "name": "btp.samples.split.mta.lib",
+    "name": "sap.btp.ui5lib",
     "version": "0.0.1",
     "private": true,
     "sapuxLayer": "VENDOR",

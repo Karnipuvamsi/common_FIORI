@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
 specVersion: '3.0'
 metadata:
-  name: btp.samples.split.mta.lib
+  name: sap.btp.ui5lib
 type: library
 resources:
   configuration:
@@ -15,6 +15,6 @@ builder:
   - name: ui5-task-zipper
     afterTask: buildThemes
     configuration:
-      archiveName: btpsamplessplitmtalib
+      archiveName: cscsapbtpui5lib
       additionalFiles:
       - xs-app.json

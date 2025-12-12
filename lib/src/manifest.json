@@ -1,7 +1,7 @@
 {
     "_version": "1.60.0",
     "sap.app": {
-        "id": "btp.samples.split.mta.lib",
+        "id": "sap.btp.ui5lib",
         "type": "library",
         "i18n": "i18n/i18n.properties",
         "title": "{{title}}",
@@ -23,6 +23,6 @@
     },
     "sap.cloud": {
         "public": true,
-        "service": "btp.samples.split.mta"
+        "service": "csc.ui5lib"
     }
 }

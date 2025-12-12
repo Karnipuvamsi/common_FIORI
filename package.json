@@ -1,5 +1,5 @@
 {
-    "name": "split.mta.shared",
+    "name": "sap.btp.ui5lib",
     "version": "0.0.1",
     "private": true,
     "keywords": [
@@ -10,7 +10,7 @@
     "scripts": {
         "deploy": "fiori cfDeploy",
         "build:mta": "rimraf resources mta_archives && mbt build --mtar archive",
-        "undeploy": "cf undeploy btp-samples-split-mta-shared --delete-services --delete-service-keys"
+        "undeploy": "cf undeploy csc-sap-btp-ui5lib --delete-services --delete-service-keys"
     },
     "devDependencies": {
         "rimraf": "6.0.1",
